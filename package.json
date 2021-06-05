@@ -20,6 +20,7 @@
     "url": "https://github.com/AlyonaYaroshenko/goit-js-hw-12-countries/issues"
   },
   "devDependencies": {
+    "@pnotify/core": "^5.2.0",
     "parcel-bundler": "^1.12.5"
   },
   "dependencies": {
