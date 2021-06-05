@@ -1,0 +1,28 @@
+{
+  "name": "goit-js-hw-12-countries",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "homepage": "https://alyonayaroshenko.github.io/goit-js-hw-12-countries/",
+  "scripts": {
+    "dev": "parcel *.html",
+    "build": "parcel build *.html --public-url /goit-js-hw-12-countries/",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlyonaYaroshenko/goit-js-hw-12-countries.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlyonaYaroshenko/goit-js-hw-12-countries/issues"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.5"
+  },
+  "dependencies": {
+    "gh-pages": "^3.1.0"
+  }
+}
