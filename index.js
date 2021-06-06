@@ -1,13 +1,11 @@
 import './src/css/styles.css';
-import countryCard from '../templates/country-card.hbs';
-import countryUnderTen from '../templates/country-card-one.hbs';
-import API from '../js/api-service.js';
-import getRefs from '../js/get-refs';
+import countryCard from './src/templates/country-card.hbs';
+import countryUnderTen from './src/templates/country-card-one.hbs';
+import API from './src/js/api-service.js';
+import getRefs from './src/js/get-refs';
 import '@pnotify/core/dist/BrightTheme.css';
 import '@pnotify/core/dist/PNotify.css';
 import { error } from '@pnotify/core';
-// import { defaults } from '@pnotify/core';
-
 
 const refs = getRefs();
 var debounce = require('debounce');
@@ -20,13 +18,9 @@ function pushError(err) {
   });
 }
 
-
-
 function clearResult() { 
     refs.countryContainer.innerHTML = '';
 }
-
-/* ============Функция рендеринга разметки================*/
 
 function renderCountryCard(country) {   
     if (country.length === 1) {
@@ -37,8 +31,7 @@ function renderCountryCard(country) {
         console.log(markup);
         refs.countryContainer.innerHTML = markup;
     } else if (country.length > 10) { 
-        pushError('Сделайте более специфичный запрос. Слишком много совпадений!!');
-        // console.log('Сделайте более специфичный запрос. Слишком много совпадений!!');
+        pushError('Ooops ;( Too many options. Specify the name of the country');
     }; 
     
 }
@@ -46,19 +39,12 @@ function renderCountryCard(country) {
 function onSearch(e) { 
     e.preventDefault();
     const searchQuery = refs.countryNameInput.value;
-    // console.log(searchQuery);
     if (searchQuery.length === 0) {
         clearResult();
         return;
     } else { 
         API.fetchCountryByName(searchQuery)
         .then(renderCountryCard)
-        .catch(error => pushError('Ошибка ввода, такой страны не существует'));
-    }
-
-    
+        .catch(error => pushError('Ooops ;( There is no such country!'));
+    }    
 }
-
-// //  if (response.ok) return response.json();
-//     if (response.status == 404) throw new Error('Not found');
-//     throw new Error('Error fetching data');
