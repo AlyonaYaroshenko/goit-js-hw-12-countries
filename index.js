@@ -15,6 +15,7 @@ refs.countryInput.addEventListener('input', debounce(onSearch, 500));
 function onSearch(e) { 
     e.preventDefault();
     const searchQuery = refs.countryInput.value;
+        // const searchQuery = e.target.value;
     if (searchQuery.length === 0) {
         clearResult();
         return;
